@@ -1,7 +1,10 @@
-
-import { Module } from '@nestjs/common';
+﻿import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { Vendor } from './modules/vendors/entities/vendor.entity';
+import { PurchaseOrder } from './modules/purchase-orders/entities/purchase-order.entity';
+import { PurchaseOrderItem } from './modules/purchase-orders/entities/purchase-order-item.entity';
+import { Payment } from './modules/payments/entities/payment.entity';
 
 @Module({
   imports: [
@@ -11,8 +14,8 @@ import { TypeOrmModule } from '@nestjs/typeorm';
     TypeOrmModule.forRoot({
       type: 'postgres',
       url: process.env.DATABASE_URL,
-      entities: [__dirname + '/**/*.entity{.ts,.js}'],
-      synchronize: true, // Only for development
+      entities: [Vendor, PurchaseOrder, PurchaseOrderItem, Payment],
+      synchronize: true,
       ssl: {
         rejectUnauthorized: false,
       },
