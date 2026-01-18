@@ -1,98 +1,311 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
-</p>
+# 🚀 MSME Payment Tracker - Backend
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+A professional NestJS-based payment tracking system for MSMEs with PostgreSQL (Supabase) database.
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+## ✨ Features
 
-## Description
+- ✅ **Vendor Management**: Create, update, and manage vendors with payment terms
+- ✅ **Purchase Order System**: Auto-generated PO numbers, multi-item orders, status tracking
+- ✅ **Payment Processing**: Multiple payment methods, auto status updates, balance validation
+- ✅ **Analytics Dashboard**: Vendor outstanding reports, payment aging analysis
+- ✅ **Data Validation**: Class-validator for robust input validation
+- ✅ **TypeORM**: Powerful ORM with entity relationships
+- ✅ **Production Ready**: CORS, global pipes, error handling
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+---
 
-## Project setup
+## 🛠️ Tech Stack
 
+- **Framework**: NestJS 11.x
+- **Database**: PostgreSQL (Supabase)
+- **ORM**: TypeORM
+- **Validation**: class-validator, class-transformer
+- **Language**: TypeScript
+
+---
+
+## 📦 Installation
+
+### Prerequisites
+- Node.js 18+ 
+- PostgreSQL database (Supabase account)
+
+### Steps
+
+1. **Clone the repository**
 ```bash
-$ npm install
+git clone https://github.com/aryantamboli770/msme-payment-tracker.git
+cd msme-payment-tracker
 ```
 
-## Compile and run the project
-
+2. **Install dependencies**
 ```bash
-# development
-$ npm run start
-
-# watch mode
-$ npm run start:dev
-
-# production mode
-$ npm run start:prod
+npm install
 ```
 
-## Run tests
-
+3. **Configure environment**
 ```bash
-# unit tests
-$ npm run test
+# Create .env file from example
+cp .env.example .env
 
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
+# Update .env with your Supabase connection string
+# DATABASE_URL=postgresql://postgres:your-password@db.xxxxx.supabase.co:5432/postgres
 ```
 
-## Deployment
-
-When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
-
-If you are looking for a cloud-based platform to deploy your NestJS application, check out [Mau](https://mau.nestjs.com), our official platform for deploying NestJS applications on AWS. Mau makes deployment straightforward and fast, requiring just a few simple steps:
-
+4. **Run the application** (database tables will be created automatically)
 ```bash
-$ npm install -g @nestjs/mau
-$ mau deploy
+npm run start:dev
 ```
 
-With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
+5. **Seed database** (optional - adds sample data)
+```bash
+npm run seed
+```
 
-## Resources
+---
 
-Check out a few resources that may come in handy when working with NestJS:
+## 🚀 Usage
 
-- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
-- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
-- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
-- Deploy your application to AWS with the help of [NestJS Mau](https://mau.nestjs.com) in just a few clicks.
-- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
-- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
-- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
-- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
+### Development Mode
+```bash
+npm run start:dev
+```
+Server runs on: `http://localhost:3000/api`
 
-## Support
+### Production Build
+```bash
+npm run build
+npm run start:prod
+```
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+### Seed Database
+```bash
+# Development
+npm run seed
 
-## Stay in touch
+# Production
+npm run seed:prod
+```
 
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+---
 
-## License
+## 📚 API Documentation
 
-Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+See [API_DOCUMENTATION.md](./API_DOCUMENTATION.md) for complete API reference.
+
+### Quick Examples
+
+**Create Vendor:**
+```bash
+POST /api/vendors
+{
+  "vendorName": "Tech Corp",
+  "contactPerson": "John Doe",
+  "email": "john@techcorp.com",
+  "phoneNumber": "+91-9876543210",
+  "paymentTerms": 30,
+  "status": "ACTIVE"
+}
+```
+
+**Create Purchase Order:**
+```bash
+POST /api/purchase-orders
+{
+  "vendorId": "vendor-uuid",
+  "items": [
+    {"description": "Laptop", "quantity": 5, "unitPrice": 50000}
+  ]
+}
+```
+
+**Create Payment:**
+```bash
+POST /api/payments
+{
+  "purchaseOrderId": "po-uuid",
+  "paymentDate": "2026-01-18",
+  "amountPaid": 50000,
+  "paymentMethod": "NEFT"
+}
+```
+
+**Get Analytics:**
+```bash
+GET /api/analytics/vendor-outstanding
+GET /api/analytics/payment-aging
+```
+
+---
+
+## 🗂️ Project Structure
+```
+src/
+├── common/
+│   └── enums/
+│       └── index.ts                 # Shared enums
+├── modules/
+│   ├── vendors/
+│   │   ├── dto/                     # Data Transfer Objects
+│   │   ├── entities/                # TypeORM entities
+│   │   ├── vendors.controller.ts
+│   │   ├── vendors.service.ts
+│   │   └── vendors.module.ts
+│   ├── purchase-orders/
+│   │   ├── dto/
+│   │   ├── entities/
+│   │   ├── purchase-orders.controller.ts
+│   │   ├── purchase-orders.service.ts
+│   │   └── purchase-orders.module.ts
+│   ├── payments/
+│   │   ├── dto/
+│   │   ├── entities/
+│   │   ├── payments.controller.ts
+│   │   ├── payments.service.ts
+│   │   └── payments.module.ts
+│   └── analytics/
+│       ├── analytics.controller.ts
+│       ├── analytics.service.ts
+│       └── analytics.module.ts
+├── app.module.ts
+├── main.ts
+└── seed.ts                          # Database seeding
+```
+
+---
+
+## 🔒 Environment Variables
+
+Create a `.env` file in the root directory:
+```env
+# Database Configuration
+DATABASE_URL=postgresql://postgres:your-password@db.xxxxx.supabase.co:5432/postgres
+
+# Application Configuration
+PORT=3000
+NODE_ENV=development
+```
+
+---
+
+## 🧪 Testing
+
+### Test Endpoints with PowerShell (Windows)
+```powershell
+# Get all vendors
+Invoke-WebRequest -Uri "http://localhost:3000/api/vendors" -Method GET
+
+# Get analytics
+Invoke-WebRequest -Uri "http://localhost:3000/api/analytics/vendor-outstanding" -Method GET
+```
+
+### Test with cURL (Mac/Linux)
+```bash
+# Get all vendors
+curl http://localhost:3000/api/vendors
+
+# Create vendor
+curl -X POST http://localhost:3000/api/vendors \
+  -H "Content-Type: application/json" \
+  -d '{"vendorName":"Test Vendor","contactPerson":"John","email":"test@vendor.com","phoneNumber":"1234567890","paymentTerms":30,"status":"ACTIVE"}'
+```
+
+---
+
+## 📊 Database Schema
+
+### Vendors
+- `id` (UUID), `vendorName`, `contactPerson`, `email`, `phoneNumber`
+- `paymentTerms` (7/15/30/45/60 days)
+- `status` (ACTIVE/INACTIVE)
+- Timestamps: `createdAt`, `updatedAt`
+
+### Purchase Orders
+- `id` (UUID), `poNumber`, `vendorId`, `poDate`, `totalAmount`, `dueDate`
+- `status` (DRAFT/APPROVED/PARTIALLY_PAID/FULLY_PAID)
+- Timestamps: `createdAt`, `updatedAt`
+
+### Purchase Order Items
+- `id` (UUID), `purchaseOrderId`, `description`, `quantity`, `unitPrice`, `lineTotal`
+
+### Payments
+- `id` (UUID), `paymentReference`, `purchaseOrderId`, `paymentDate`
+- `amountPaid`, `paymentMethod`, `notes`
+- Timestamp: `createdAt`
+
+---
+
+## 🎯 Available Scripts
+```bash
+# Development
+npm run start:dev          # Start in development mode with hot-reload
+
+# Production
+npm run build              # Build for production
+npm run start:prod         # Start production server
+
+# Database
+npm run seed               # Seed database with sample data
+npm run seed:prod          # Seed production database
+
+# Code Quality
+npm run lint               # Lint and fix code
+npm run format             # Format code with Prettier
+
+# Testing
+npm run test               # Run unit tests
+npm run test:e2e           # Run end-to-end tests
+npm run test:cov           # Run tests with coverage
+```
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome! Please follow these steps:
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+---
+
+## 📝 License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+---
+
+## 👨‍💻 Author
+
+**Aryan Tamboli**
+- GitHub: [@aryantamboli770](https://github.com/aryantamboli770)
+- Email: 1181hema@gmail.com
+
+---
+
+## 🙏 Acknowledgments
+
+- [NestJS](https://nestjs.com/) - The progressive Node.js framework
+- [Supabase](https://supabase.com/) - Open source Firebase alternative
+- [TypeORM](https://typeorm.io/) - Amazing ORM for TypeScript
+
+---
+
+## 📧 Support
+
+For issues and questions:
+- Open an issue on [GitHub Issues](https://github.com/aryantamboli770/msme-payment-tracker/issues)
+- Contact: 1181hema@gmail.com
+
+---
+
+## 🌟 Show Your Support
+
+Give a ⭐️ if this project helped you!
+
+---
+
+**Built with ❤️ using NestJS and TypeScript**
