@@ -5,14 +5,14 @@ import { AppModule } from './app.module';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
-  
-  // Enable CORS for frontend integration
+
+  // Enable CORS (keep simple for production)
   app.enableCors({
-    origin: ['http://localhost:3000', 'http://localhost:5173'], // Add your frontend URLs
+    origin: true,
     credentials: true,
   });
 
-  // Global validation pipe
+  // Global validation
   app.useGlobalPipes(
     new ValidationPipe({
       whitelist: true,
@@ -25,9 +25,11 @@ async function bootstrap() {
   app.setGlobalPrefix('api');
 
   const port = process.env.PORT || 3000;
-  await app.listen(port);
-  
-  console.log(`🚀 Application is running on: http://localhost:${port}/api`);
+
+  // 🔥 IMPORTANT: bind to 0.0.0.0 for Render
+  await app.listen(port, '0.0.0.0');
+
+  console.log(`🚀 Application running on port ${port}`);
 }
 
 bootstrap();
